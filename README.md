@@ -50,3 +50,5 @@ void loop() {
 }
 ```
 The code repeatedly measures the distance using the ultrasonic sensor and ESP32. It sends a short pulse to the sensor's trigger pin, listens for the echo on the echo pin, calculates the distance based on the time it takes for the echo to return, and then prints the distance in centimeters to the serial monitor every second.
+
+Project Link: https://wokwi.com/projects/403246358084998145
