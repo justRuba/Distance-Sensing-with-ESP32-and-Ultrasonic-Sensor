@@ -12,3 +12,41 @@ This project utilizes an ESP32 microcontroller and an ultrasonic sensor to measu
 - UltraSonaic
   
 ![UltraSonaic](https://github.com/user-attachments/assets/547fae7e-9a9e-425a-836e-9b5c43c31f7b)
+
+## The Circuit:
+
+![Circuit](https://github.com/user-attachments/assets/329c6552-807b-4792-9fc0-580978b722e8)
+
+## The Code:
+
+```
+int trigPin = 5;        
+int echoPin = 18;        
+long duration;           
+float speedOfSound = 0.034; 
+float distanceInCm;    
+
+void setup() {
+  Serial.begin(115200);   
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);  
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);      
+  delayMicroseconds(2);             
+  digitalWrite(trigPin, HIGH);      
+  delayMicroseconds(10);      
+  digitalWrite(trigPin, LOW);      
+
+  duration = pulseIn(echoPin, HIGH); 
+
+  distanceInCm = duration * speedOfSound / 2; 
+  Serial.print("Distance measured: ");
+  Serial.print(distanceInCm);
+  Serial.println(" cm");     
+
+  delay(1000); 
+}
+```
+
